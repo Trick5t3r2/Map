@@ -54,12 +54,13 @@ class DisplayMapActivity : AppCompatActivity(), OnMapReadyCallback {
             val latLng = LatLng(place.latitude, place.longitude)
             boundsBuilder.include(latLng)
             mMap.addMarker(MarkerOptions().position(latLng).title(place.title).snippet(place.description))
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15f))
         }
 
         // Add a marker in Kurunegala and move the camera
        // val kurunegala = LatLng(7.516245055668972, 80.35739902025514)
       //  mMap.addMarker(MarkerOptions().position(kurunegala).title("Kurunegala"))
        // mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 0))
-        mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1500, 1500, 0))
+       // mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1500, 1500, 0))
     }
 }
